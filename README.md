@@ -34,4 +34,7 @@ The database should have the following items in the ***EXACT ORDER***
 4. Image URL
 Any other additional columns
 ```
+## License
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
 Feel free to clone and fork.
