@@ -2,17 +2,18 @@
 [![Demo of the application](http://i3.ytimg.com/vi/qxdiHaoWSRw/hqdefault.jpg)](http://www.youtube.com/watch?v=qxdiHaoWSRw&t=5s)
 
 This is Ghost, my(RishiRaj22 's) first servlet. It was basically made for demonstrational purpose, and as a
-fun project. It  can be used to control your P.C. using different devices. It's a fun way to begin your servlet journey. You can run any application and take screenshot of your device from a connected client. 
+fun project. It  can be used to control your P.C. using different devices. It's a fun way to begin your servlet journey. You can run any application and take screenshot of your device from a connected client.
+
 ##Example use cases:
-1. Remotely launch apps
-2. Remotely run scripts
-3. Capture screenshots at a high quality instantaneously.
+
+Wanna look cool? Remotely run terminal commands and launch apps without touching your computer.
+Wanna check download status without peeking at your computer? Simply,Capture screenshots of your computer and watch it from any device.
 
 ##Pre-Requisites:
 ```
-Server software like Tomcat
-Database management software like MySQL
-JAVA EE compiler or IDE
+1. Server software like Tomcat
+2. Database management software like MySQL
+3. JAVA EE compiler or IDE
 ```
 ##Setup:
 Clone this repository using: 
@@ -30,5 +31,4 @@ The database should have the following items in the ***EXACT ORDER***
 4. Image URL
 Any other additional columns
 ```
-
 Feel free to clone and fork.
