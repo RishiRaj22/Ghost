@@ -6,8 +6,9 @@ fun project. It  can be used to control your P.C. using different devices. It's 
 
 ##Example use cases:
 
-Wanna look cool? Remotely run terminal commands and launch apps without touching your computer.
-Wanna check download status without peeking at your computer? Simply,Capture screenshots of your computer and watch it from any device.
+Do you want to look cool? Remotely run terminal commands and launch apps without touching your computer.
+
+Do you want to check download status without peeking at your computer? Simply, capture screenshots of your computer and watch it from any device.
 
 ##Pre-Requisites:
 ```
