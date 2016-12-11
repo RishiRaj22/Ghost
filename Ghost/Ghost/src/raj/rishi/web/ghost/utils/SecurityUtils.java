@@ -13,13 +13,13 @@ public class SecurityUtils {
 	}
 	
 	public boolean getAuthencticity(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		if(request.getSession().getAttribute("auth")!=null&&request.getSession().getAttribute("auth").equals(Constants.PASSWORD))
+		if(request.getSession().getAttribute("auth")!=null&&request.getSession().getAttribute("auth").equals(Constants.SESSION_AUTHENTICATION))
 			return true;
 		Cookie[] cookies=request.getCookies();
 		if(cookies==null) return false;
 		for(int i=0;i<cookies.length;i++)
 		{
-			if(cookies[i].getName().equals("IsAuthenticated")&&cookies[i].getValue().equals(Constants.PASSWORD))
+			if(cookies[i].getName().equals("IsAuthenticated")&&cookies[i].getValue().equals(Constants.COOKIE_VALUE))
 				return true;
 		}
 		return false;

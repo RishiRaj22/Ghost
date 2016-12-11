@@ -35,11 +35,11 @@ public class Auth extends HttpServlet {
 			System.out.println(request.getParameter("checkbox"));
 			if(request.getParameter("remember")!=null)
 			{
-			Cookie cookie=new Cookie("IsAuthenticated",Constants.PASSWORD);
+			Cookie cookie=new Cookie("IsAuthenticated",Constants.COOKIE_VALUE);
 			cookie.setMaxAge(60*60*24*365);
 			response.addCookie(cookie);
 			}
-			request.getSession().setAttribute("auth", Constants.PASSWORD);
+			request.getSession().setAttribute("auth", Constants.SESSION_AUTHENTICATION);
 			
 			response.sendRedirect("Command");
 		}
