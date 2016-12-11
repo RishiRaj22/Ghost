@@ -24,12 +24,19 @@ public class AddItems {
 				return;
 			out.append("<br>");
 			out.append("<label>Type in a command</label><form method=\"post\" action=\"Output\"><input type=\"text\" name=\"command\" ><input type=\"submit\" name=\"Submit\"></input></form>");
+			
+			
+			/*---------------------Database related code--------------------------------*/
+			
 			Class.forName("com.mysql.jdbc.Driver");
 			System.out.println("Class found");
-	
 			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ghostinfo","root","");
 			Statement stmt=con.createStatement();  
 			ResultSet rs=stmt.executeQuery("select * from apps order by precedence desc"); 
+			
+			/*-------------------------End of Database related code-----------------------*/
+			
+			
 			System.out.println("Executed query");
 			out.append("<table>");
 			addScreenShot(out);
@@ -50,6 +57,9 @@ public class AddItems {
 				out.append("</td>");
 				out.append("</tr>");
 			}
+			
+			
+			
 		out.append("</table>");
 	} catch (Exception e) {
 		System.out.println("Database error");

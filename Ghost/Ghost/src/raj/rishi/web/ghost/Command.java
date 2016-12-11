@@ -28,8 +28,7 @@ public class Command extends HttpServlet {
 			PrintWriter out=response.getWriter();
 			auth=security.getAuthencticity(request, response);
 			if(auth)
-			{
-				
+			{	
 			response.setContentType("text/html");
 			out.append("<title>Ghost</title>");
 			out.append("<meta name=\"viewport\" content=\"width=device-width, initial-sclae=1\">");
