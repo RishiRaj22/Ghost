@@ -22,7 +22,9 @@ Clone this repository using:
 git clone https://github.com/RishiRaj22/Ghost.git
 ```
 Now add it to your IDE of choice like Eclipse supporting Java EE and make sure you have some server like Tomcat, database like MySQL.
+
 All the functionalities will run independent of your configuration.
+
 However edit raj.rishi.ghost.backend.AddItems to support your database.
 The database should have the following items in the ***EXACT ORDER***
 ```
