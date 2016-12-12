@@ -13,15 +13,15 @@ Do you want to check download status without peeking at your computer? Simply, c
 ##Pre-Requisites:
 ```
 1. Server software like Tomcat
-2. Database management software like MySQL
-3. JAVA EE compiler or IDE
+2. JAVA EE compiler or IDE
+3. (OPTIONAL) Database management software like MySQL
 ```
 ##Setup:
 Clone this repository using: 
 ```
 git clone https://github.com/RishiRaj22/Ghost.git
 ```
-Now add it to your IDE of choice like Eclipse supporting Java EE and make sure you have some server like Tomcat, database like MySQL.
+Now add it to your IDE of choice like Eclipse supporting Java EE and make sure you have some server like Tomcat.
 
 All the functionalities will run independent of your configuration.
 
