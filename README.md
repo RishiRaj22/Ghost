@@ -25,15 +25,19 @@ Now add it to your IDE of choice like Eclipse supporting Java EE and make sure y
 
 All the functionalities will run independent of your configuration.
 
-However edit raj.rishi.ghost.backend.AddItems to support your database.
-The database should have the following items in the ***EXACT ORDER***
+The class raj.rishi.ghost.backend.AddItems is optional, you can use it as a template to support
+connection to a database to show the icons, name and store the associated command to facilitate
+the process of opening an app.
+The table used to show icons in a table could have the following items, as in the given project:
 ```
-1. Precedence or Serial No.
-2. Name
-3. Command (Primary Key)
-4. Image URL
-Any other additional columns
+| Serial No.    | Name        |Datatype |
+| ------------- |:-------------:| -----:|
+| 1     | Precedence| int |
+| 2    | Name      | varchar |
+| 3 | Command     | varchar |
+| 4 | Image URL     | varchar |
 ```
+For a table like
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
