@@ -26,9 +26,10 @@ Now add it to your IDE of choice like Eclipse supporting Java EE and make sure y
 All the functionalities will run independent of your configuration.
 
 The class raj.rishi.ghost.backend.AddItems is optional, you can use it as a template to support
-connection to a database to show the icons, name and store the associated command to facilitate
-the process of opening an app.
-The table used to show icons in a table could have the following items, as in the given project:
+connection to a database or any other data source that contains information about the apps, commands
+needed to launch the app, it's icon, name, etc.
+The provided demo raj.rishi.ghost.backend.AddItems uses a MySQL database
+On similar lines, the database table used to show icons in a table could have structure similar to the demo:
 
 | Serial No.    | Name        |Datatype |
 | ------------- |:-------------:| -----:|
@@ -41,4 +42,4 @@ For a table like
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-Feel free to clone and fork.
+Feel free to clone, fork and raise any bugs or contribute to this project.
