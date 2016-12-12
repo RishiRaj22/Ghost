@@ -28,7 +28,7 @@ All the functionalities will run independent of your configuration.
 The class raj.rishi.ghost.backend.AddItems is optional, you can use it as a template to support
 connection to a database or any other data source that contains information about the apps, commands
 needed to launch the app, it's icon, name, etc.
-The provided demo raj.rishi.ghost.backend.AddItems uses a MySQL database
+The provided demo raj.rishi.ghost.backend.AddItems uses a MySQL database.
 On similar lines, the database table used to show icons in a table could have structure similar to the demo:
 
 | Serial No.    | Name        |Datatype |
@@ -38,7 +38,6 @@ On similar lines, the database table used to show icons in a table could have st
 | 3 | Command     | varchar |
 | 4 | Image URL     | varchar |
 
-For a table like
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
