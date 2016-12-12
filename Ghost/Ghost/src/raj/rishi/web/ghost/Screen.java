@@ -15,9 +15,10 @@ import raj.rishi.web.ghost.backend.ScreenProject;
 import raj.rishi.web.ghost.utils.SecurityUtils;
 
 /**
- * Servlet implementation class Screen
+ * Servlet required to show the screenshot of server machine from client machine
+ * @author Raj
  */
-@WebServlet(description = "View screen projection.... pretty moonshot", urlPatterns = { "/Screen" })
+@WebServlet(description = "View screen projection of server from any client", urlPatterns = { "/Screen" })
 public class Screen extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ScreenProject screenProject;
@@ -30,14 +31,19 @@ public class Screen extends HttpServlet {
     	super();
     	screenProject=new ScreenProject();
     }
+    
     @Override
     public void destroy() {
     	super.destroy();
     }
-
+    
+    /** Renders a web page on the client device with an image of jpg format containing
+     * the screenshot of the server machine. Like all the other servlet methods,
+	 * it requires the user to be authenticated.
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		SecurityUtils security=new SecurityUtils();
-		auth=security.getAuthencticity(request, response);
+		auth=security.getAuthencticity(request);
 		if(auth)
 		{
 		response.setContentType("image/jpg");

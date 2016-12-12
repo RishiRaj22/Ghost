@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import raj.rishi.web.ghost.utils.Constants;
 
 /**
- * Servlet implementation class Auth
+ * Servlet used to authenticate a client
  */
 @WebServlet("/Auth")
 public class Auth extends HttpServlet {
@@ -27,7 +27,10 @@ public class Auth extends HttpServlet {
     }
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 *Authenticates the user by checking if the password is correct for
+	 *a session or for an year depending on what the user clicked in the checkbox.
+	 *@param request Servlet request used to get cookies and correct session
+	 *@param response Servlet response to notify user about incorrect password or the redirect to command screen
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getParameter("pass").equals(Constants.PASSWORD))

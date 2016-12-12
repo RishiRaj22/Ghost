@@ -12,21 +12,35 @@ import javax.servlet.http.HttpServletResponse;
 
 import raj.rishi.web.ghost.utils.SecurityUtils;
 
+/**
+ * This class is used to connect to a datasource.
+ * You can remove it and delete all its references and still be fine,
+ * but it can be used to add a GUI for running pre-configured commands and apps
+ * listed in a database
+ * @author Raj
+ */
 public class AddItems {
 
-	public static void getTable(HttpServletRequest request, HttpServletResponse response)
+	/**
+	 * It simplifies the process of adding items. You can use the readme.md
+	 * file to know how to make a database and use it for displaying tables
+	 * that execute a given command.
+	 * @param request Used to check authenticity of user
+	 * @param response Used to display the list of commands
+	 */
+	public static void getList(HttpServletRequest request, HttpServletResponse response)
 	{
 		
 		try{
 			PrintWriter out=response.getWriter();
 			SecurityUtils security = new SecurityUtils();
-			if(!security.getAuthencticity(request, response))
+			if(!security.getAuthencticity(request))
 				return;
 			out.append("<br>");
 			out.append("<label>Type in a command</label><form method=\"post\" action=\"Output\"><input type=\"text\" name=\"command\" ><input type=\"submit\" name=\"Submit\"></input></form>");
 			
 			
-			/*---------------------Database related code--------------------------------*/
+			/*---------------Database related code: Edit this to make it run with your database----------------------*/
 			
 			Class.forName("com.mysql.jdbc.Driver");
 			System.out.println("Class found");
@@ -74,6 +88,9 @@ public class AddItems {
 		
 	}
 	}
+	/**
+	 * This method adds the link for getting a screenshot from Screen servlet{@see raj.rishi.web.ghost.backend.AddItems#getList(HttpServletRequest, HttpServletResponse)}
+	 */
 	private static void addScreenShot(PrintWriter out) throws IOException {
 		System.out.println("Inside add Screenshot");
 		out.append("<tr>");
