@@ -29,14 +29,14 @@ The class raj.rishi.ghost.backend.AddItems is optional, you can use it as a temp
 connection to a database to show the icons, name and store the associated command to facilitate
 the process of opening an app.
 The table used to show icons in a table could have the following items, as in the given project:
-```
+
 | Serial No.    | Name        |Datatype |
 | ------------- |:-------------:| -----:|
 | 1     | Precedence| int |
 | 2    | Name      | varchar |
 | 3 | Command     | varchar |
 | 4 | Image URL     | varchar |
-```
+
 For a table like
 ## License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
