@@ -12,6 +12,8 @@ import java.awt.image.BufferedImage;
  */
 public class ScreenProject {
 	int x,y;
+	static int count = 0;
+	
 	public ScreenProject()
 	{
 		x=(int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
@@ -24,7 +26,9 @@ public class ScreenProject {
 	 */
 	public BufferedImage getScreenShot () throws AWTException
 	{
+		count++;
 		Robot robot=new Robot();
+    	System.out.println("Photo taken #"+count);
 		return robot.createScreenCapture(new Rectangle(0,0,x,y));
 	}
 

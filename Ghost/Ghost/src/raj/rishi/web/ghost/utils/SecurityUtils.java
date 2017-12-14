@@ -14,7 +14,7 @@ public class SecurityUtils {
 	 */
 	public static void askPassword(HttpServletResponse response) throws IOException
 	{
-		response.getWriter().write("<html><title>Ghost: Welcome</title><h1>Please type the password to access</h1><form  action=\"Auth\" method=\"post\">Password: <input type=\"password\" name=\"pass\"></input><br>Remember me<input type=checkbox name=\"remember\" value=\"y\"></input><br><input type=\"submit\"></input></form> </html>");
+		response.getWriter().write("<html><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"></head><title>Ghost: Welcome</title><h1>Please type the password to access</h1><form  action=\"Auth\" method=\"post\">Password: <input type=\"password\" name=\"pass\"></input><br>Remember me<input type=checkbox name=\"remember\" value=\"y\"></input><br><input type=\"submit\"></input></form> </html>");
 	}
 	/**
 	 * This method is used to check wether a user is authenticated 

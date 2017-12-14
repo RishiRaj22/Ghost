@@ -53,6 +53,7 @@ public class AddItems {
 			
 			System.out.println("Executed query");
 			out.append("<table>");
+			addMouse(out);
 			addScreenShot(out);
 			while(rs.next())  
 			{
@@ -75,6 +76,7 @@ public class AddItems {
 			
 			
 		out.append("</table>");
+		out.append("<footer align = \"center\">Made by Rishi Raj</footer>");
 	} catch (Exception e) {
 		System.out.println("Database error");
 		try {
@@ -102,5 +104,17 @@ public class AddItems {
 		out.append("</a> </td>");
 		out.append("</tr>");
 		System.out.println("Added Screenshot");
+	}
+	private static void addMouse(PrintWriter out) throws IOException {
+		System.out.println("Inside add mouse");
+		out.append("<tr>");
+		out.append("<td> <a href=\"command.html\">");
+		out.append("<img width = \"128\" height = \"128\" src=\"img/remote.png\">");
+		out.append("</a> </td>");
+		out.append("<td> <a href=\"command.html\">");
+		out.append("<p>Control mouse</p>");
+		out.append("</a> </td>");
+		out.append("</tr>");
+		System.out.println("Added control mouse");
 	}
 }

@@ -52,11 +52,9 @@ public class Output extends HttpServlet {
 		out.append("<meta name=\"viewport\" content=\"width=device-width, initial-sclae=1\">");
 		try {
 			CommandExec.runApp(request.getParameter("command"));
-			out.append("<h1>Command "+request.getParameter("command")+" ran successfully</h1>");
-			out.append("<img src=\"img/nyan.gif\">");//You may remove or change the successs image as per your wish
+			out.append("<h1 style=\"color:green;\">Command "+request.getParameter("command")+" ran successfully</h1>");
 		} catch (CommandExecException e) {
-			out.write("<h1>Error</h1> Command  "+request.getParameter("command")+" unable to execute.");
-			out.append("<img src=\"img/error.jpg\">");//You may remove or change the error image as per your wish
+			out.write("<h1 style=\"color:red;\">Error Command  "+request.getParameter("command")+" unable to execute.</h1>");
 			e.printStackTrace();
 		}
 		finally{

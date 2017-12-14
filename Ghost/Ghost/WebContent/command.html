@@ -1,0 +1,102 @@
+<html>
+	<head>
+		<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  
+             <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script>	$(document).ready(function() {
+
+		var canvas = document.getElementById("canvas");
+		var context = canvas.getContext("2d");
+		context.beginPath();
+		function clear(context,width,height) {
+			context.arc(width/2, height/2, radius, 0, 2 * Math.PI, false);
+			context.fillStyle = 'black';
+			context.fill();
+		}
+		
+		var width = 300;
+		var height = 300;
+		var down = false;
+		var xT = 0, yT = 0;
+		var radius = width > height ? height/2 : width/2;
+		clear(context,width,height);
+		
+        canvas.addEventListener("mousedown", down, false);
+        canvas.addEventListener("mousemove", move, false);
+        canvas.addEventListener("touchstart", tdown, false);
+        canvas.addEventListener("touchmove", tmove, true);
+        canvas.addEventListener("touchend", tup, false);
+		function tdown(event) {
+				down = true;
+				xT = event.pageX;
+				yT = event.pageY;
+		};
+		function tup () {
+			down = false;
+		};
+		function tdown(e) {
+			down = true;
+			xT = e.targetTouches[0].pageX;
+			yT = e.targetTouches[0].pageY;
+		}
+		function tmove(event) {
+			move(event.targetTouches[0].pageX,event.targetTouches[0].pageY);
+		}
+		function mmove(event) {
+			move(event.pageX,event.pageY);
+		}
+		function move(ex,ey) {
+				if(!down) return;
+				clear(context,width,height);
+				var x = ex - xT;
+				var y = ey - yT;
+				context.beginPath();
+				var radius = width > height ? height/6 : width/6;
+				context.arc(width/2 + x/2, height/2 + y/2, radius, 0, 2 * Math.PI, false);
+				context.fillStyle = 'white';
+				context.fill();
+				var xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+					   // Typical action to be performed when the document is ready:
+					   document.getElementById("demo").innerHTML = xhttp.responseText;
+					}
+				};
+				xhttp.open("GET", "Move?x=" + x + "&y=" + y, true);
+				xhttp.send();
+			};
+			$(".l").click(function() {
+				var xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+					   // Typical action to be performed when the document is ready:
+					   document.getElementById("demo").innerHTML = xhttp.responseText;
+					}
+				};
+				xhttp.open("GET", "Click?c=l", true);
+				xhttp.send();
+			});
+			$(".r").click(function() {
+				var xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+					   // Typical action to be performed when the document is ready:
+					   document.getElementById("demo").innerHTML = xhttp.responseText;
+					}
+				};
+				xhttp.open("GET", "Click?c=r", true);
+				xhttp.send();
+			});
+	});</script></head>
+	<p align = "center">
+<canvas id = "canvas" width = "300" height="300" >
+	</canvas>
+	</p>
+	<p align = "center">
+	<button width= "120" height = "40" class = "l"style="font-size:180%;">Left click</button>
+	<button width= "120" height = "40" class = "r" style="font-size:180%;">Right click</button>
+	</p>
+	</html>

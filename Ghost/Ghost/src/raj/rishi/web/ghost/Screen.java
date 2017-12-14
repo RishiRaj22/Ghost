@@ -1,7 +1,11 @@
 package raj.rishi.web.ghost;
 
 import java.awt.AWTException;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
+
+import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,10 +27,14 @@ public class Screen extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ScreenProject screenProject;
 	private boolean auth;
+	private static boolean picTaking = false;
+	private Thread t;
 	
     /**
      * @see HttpServlet#HttpServlet()
      */
+	BufferedImage image;
+
     public Screen() {
     	super();
     	screenProject=new ScreenProject();
@@ -37,6 +45,33 @@ public class Screen extends HttpServlet {
     	super.destroy();
     }
     
+    @Override
+    public void init() {
+    	if(picTaking) return;
+    	t = new Thread() {
+    		@Override
+    		public void run() {
+				picTaking = true;
+    			while(true) {
+    				try {
+    					if(!picTaking) break;
+    					long time = System.currentTimeMillis();
+    			    	image = screenProject.getScreenShot();
+    			    	Thread.sleep(Math.max(0, 100 - (System.currentTimeMillis() - time)));
+    				}
+    			    	 catch (InterruptedException e) {
+    						// TODO Auto-generated catch block
+    						e.printStackTrace();
+    					} catch (AWTException e) {
+    						// TODO Auto-generated catch block
+    						e.printStackTrace();
+    					}
+    			}
+    		}
+    	};
+    	t.start();
+    }
+    
     /** Renders a web page on the client device with an image of jpg format containing
      * the screenshot of the server machine. Like all the other servlet methods,
 	 * it requires the user to be authenticated.
@@ -44,28 +79,12 @@ public class Screen extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		SecurityUtils security=new SecurityUtils();
 		auth=security.getAuthencticity(request);
-		if(auth)
-		{
-		response.setContentType("image/jpg");
-		try {
-			JPEGCodec.createJPEGEncoder(response.getOutputStream()).encode(screenProject.getScreenShot());
-			Thread.sleep(100);
-		} catch (ImageFormatException e) { 
-			e.printStackTrace();
-		} catch (AWTException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		response.getWriter().append("<img src=\"screen.jpg\">");
+		if(auth) {
+			response.setContentType("image/jpg");
+			ImageIO.write(image, "jpg", response.getOutputStream());
 		}
 		else SecurityUtils.askPassword(response);
 	}
-	
-	
 
 
 }
